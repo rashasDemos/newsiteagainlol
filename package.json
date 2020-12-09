@@ -1,0 +1,24 @@
+{
+  "name": "port34",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "emailjs-com": "^2.6.4",
+    "next": "10.0.3",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-icons": "^4.1.0",
+    "react-three-fiber": "^5.3.7",
+    "react-transition-group": "^4.4.1",
+    "rebass": "^4.0.7",
+    "theme-ui": "^0.3.4",
+    "three": "^0.123.0",
+    "three-gltf-loader": "^1.111.0",
+    "wavify": "^1.0.0"
+  }
+}
