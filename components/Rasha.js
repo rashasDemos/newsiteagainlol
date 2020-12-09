@@ -22,9 +22,9 @@ export const Model = ({ mouse,scroll, ...props }) => useMemo(()  => {
   
 
   const group = useRef()
-  const { nodes, animations } = useLoader(GLTFLoader, "./xbot.glb")
+  const { nodes, animations } = useLoader(GLTFLoader, "https://github.com/rasha-rahman123/newsiteagainlol/raw/main/public/Xbot.glb")
   console.log(animations)
-  const texture = useLoader(THREE.TextureLoader, "./stacy.png")
+  const texture = useLoader(THREE.TextureLoader, "https://github.com/rasha-rahman123/newsiteagainlol/raw/main/public/stacy.png")
 
   const actions = useRef()
   const [mixer] = useState(() => new THREE.AnimationMixer())
