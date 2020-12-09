@@ -39,6 +39,7 @@ const bottomWave =   <div style={{height: 150, overflow: 'hidden'}} ><svg viewBo
 function MyApp({ Component, pageProps }) {
 
   const [scroll, setScroll] = useState(0)
+  const [maxScroll, setMaxScroll] = useState()
 
 useEffect(() => {
   document.onscroll = checkScroll
@@ -47,6 +48,7 @@ useEffect(() => {
 function checkScroll(e) {
   e = e || window.event
   clearTimeout(timer);
+  !maxScroll && setMaxScroll(e.target.scrollingElement.scrollHeight)
   setScroll(e.target.scrollingElement.scrollTop)
 }
 
@@ -84,7 +86,7 @@ useEffect(() => {
       transition: 'all 300ms ease 1s'
     }}>
 
-    <Component {...pageProps} colors={colors} sta={sta} scroll={scroll} mouse={mouse}/>
+    <Component {...pageProps} colors={colors} sta={sta} scroll={scroll} mouse={mouse} maxScroll={maxScroll}/>
     </Box>
   
          </>

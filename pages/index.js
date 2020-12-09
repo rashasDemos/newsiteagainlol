@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { init } from "emailjs-com";
 
-export default function Home({ colors, scroll, sta, mouse }) {
+export default function Home({ colors, scroll, sta, mouse, maxScroll }) {
   const [hovState, setHovState] = useState({
     current: "",
     hovered: null,
@@ -47,10 +47,10 @@ export default function Home({ colors, scroll, sta, mouse }) {
     await setForm(true);
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
   }
-  const rightmd = (main, sub, link) =>
+  const rightmd = (main, sub, link,i) =>
     useMemo(() => {
       return (
-        <Link href={link}>
+        <Link key={i} href={link}>
           <a>
             <RightModule
               router={router}
@@ -103,6 +103,7 @@ export default function Home({ colors, scroll, sta, mouse }) {
       scroll={scroll}
       form={form}
       setForm={setForm}
+      maxScroll={maxScroll}
     >
       {
         <Box
@@ -237,7 +238,7 @@ export default function Home({ colors, scroll, sta, mouse }) {
             <Box
               as="a"
               href={x.link}
-              key={x}
+              key={x.text}
               sx={{
                 display: "inline-block",
                 color: "white",
@@ -451,7 +452,7 @@ export default function Home({ colors, scroll, sta, mouse }) {
                   main: "Ableton, FL Studio, Logic, Waves, Arturia Analog Lab",
                   sub: "Audio",
                 },
-              ].map((x, i) => rightmd(x.main, x.sub, `/`))}
+              ].map((x, i) => rightmd(x.main, x.sub, `/`,i))}
             </Box>
           </Box>
           <Text
@@ -465,7 +466,7 @@ export default function Home({ colors, scroll, sta, mouse }) {
           </Text>
           <Text
             sx={{
-              width: ["24rem"],
+              width: ["22rem"],
               color: "blue200",
               fontStyle: "italic",
             }}

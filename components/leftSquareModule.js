@@ -103,7 +103,7 @@ export const LeftSquare = ({ colors, mouse, scroll, form, setForm }) => {
   }
   return (
     <Box
-      className={styles.floater}
+     
       sx={{
         width: 350,
         height: 500,
