@@ -6,6 +6,7 @@ import { useLoader, useFrame } from "react-three-fiber"
 import GLTFLoader from 'three-gltf-loader';
 import { getMouseDegrees } from "./utils"
 
+
 function moveJoint(mouse, joint, degreeLimit = 30) {
   let degrees = getMouseDegrees(mouse.current.x, mouse.current.y, degreeLimit)
   joint.rotation.xD = THREE.MathUtils.lerp(joint.rotation.xD || -100, degrees.y, 1)
@@ -19,16 +20,14 @@ function moveJoint(mouse, joint, degreeLimit = 30) {
 
 export const Model = ({ mouse,scroll, ...props }) => {
 
-
-
   const group = useRef()
-  const { nodes, animations } = useLoader(GLTFLoader, "https://github.com/rasha-rahman123/newsiteagainlol/raw/main/public/Xbot.glb")
-  console.log(animations)
-  const texture = useLoader(THREE.TextureLoader, "https://github.com/rasha-rahman123/newsiteagainlol/raw/main/public/stacy.png")
+  const { nodes, animations } = useLoader(GLTFLoader, "https://cors-anywhere.herokuapp.com/https://rashaportfolio-d78bb.web.app/Xbot.glb")
+
+  const texture = useLoader(THREE.TextureLoader, "https://cors-anywhere.herokuapp.com/https://rashaportfolio-d78bb.web.app/stacy.png")
 
   const actions = useRef()
   const [mixer] = useState(() => new THREE.AnimationMixer())
-  console.log(mixer)
+
   useFrame((state, delta) => mixer.update(delta))
   useEffect(() => {
     actions.current = { idle: mixer.clipAction(animations[2], group.current) }

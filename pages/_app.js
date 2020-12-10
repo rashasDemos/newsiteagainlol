@@ -5,6 +5,8 @@ import { Box, Text } from 'rebass';
 import { Transition } from 'react-transition-group';
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import Favicon from 'react-favicon'
+import { NextSeo } from 'next-seo';
 
 
 export const colors = {
@@ -48,7 +50,7 @@ useEffect(() => {
 function checkScroll(e) {
   e = e || window.event
   clearTimeout(timer);
-  !maxScroll && setMaxScroll(e.target.scrollingElement.scrollHeight)
+  setMaxScroll(e.target.scrollingElement.scrollHeight)
   setScroll(e.target.scrollingElement.scrollTop)
 }
 
@@ -61,12 +63,49 @@ useEffect(() => {
   }, 2000))
 
   timer;
+
+  
 },[])
+
+
+
 
   return <ThemeProvider theme={theme}>
      <Transition timeout={0} in={true} appear >
        {(sta) => (
          <>
+         <Favicon url="https://i.imgur.com/6bBBDpl.png" />
+           <NextSeo
+                 title="Rasha Rahman Front End Software Engineer Portfolio Website"
+                 description="Front End Engineer and Software Engineer Rasha Rahman Portfolio Website where he shows all his projects. This website was made using React.JS and Next.JS. It also uses three.js."
+                 canonical="https://www.rasha.world/"
+      openGraph={{
+        type: 'website',
+        url: 'https://www.rasha.world/',
+        title: 'Rasha Rahman Front End Software Engineer Portfolio Website',
+        description: 'Front End Engineer and Software Engineer Rasha Rahman Portfolio Website where he shows all his projects. This website was made using React.JS and Next.JS. It also uses three.js.',
+        images: [
+          {
+            url: 'https://i.imgur.com/jYL0LdL.png',
+            width: 800,
+            height: 600,
+            alt: 'Robot Rasha',
+          },
+          {
+            url: 'https://i.imgur.com/5ZzjPcV.png',
+            width: 800,
+            height: 600,
+            alt: 'Front Page View',
+          },
+        ],
+        site_name: 'RashaWorld',
+      }}
+      twitter={{
+        handle: '@raaahhh_sha',
+        site: '@raaahhh_sha',
+        cardType: 'summary_large_image',
+      }}
+    />
           <Box sx={{
       position: 'fixed',
       top: 0,
@@ -88,7 +127,11 @@ useEffect(() => {
 
     <Component {...pageProps} colors={colors} sta={sta} scroll={scroll} mouse={mouse} maxScroll={maxScroll}/>
     </Box>
-  
+  <Box sx={{position: 'fixed', minHeight: '100vh', width: '10px', bg: 'blue700', zIndex: 30, top: 0, right: 0}}>
+    <Box sx={{position: 'absolute', width: '100%', height: ((scroll/(maxScroll - 1000))*100) + '%', bg: 'gray100', top: 0, left: 0, transition: 'all 300ms linear'}}>
+
+    </Box>
+  </Box>
          </>
        )}
      </Transition>

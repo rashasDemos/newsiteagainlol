@@ -149,15 +149,17 @@ export const LeftSquare = ({ colors, mouse, scroll, form, setForm }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            
           }}
         >
+          
           <Box
             className={styles.boxAnimated}
             sx={{
               width: "97%",
               height: "98%",
 
-              background: `linear-gradient(45deg,#EDEDED,#2F5B85,#2D72AF)`,
+              background: 'linear-gradient(20deg,#EDEDED,#2F5B85,#2D72AF)',
               borderRadius: 51,
               position: "relative",
               backgroundSize: "300% 300%",
@@ -183,7 +185,7 @@ export const LeftSquare = ({ colors, mouse, scroll, form, setForm }) => {
             ",inset 0px 30px 30px " +
             colors.gray200,
           p: 20,
-          borderRadius: 51
+          borderRadius: 51,
         }}
       >
         <Text

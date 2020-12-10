@@ -122,7 +122,7 @@
 }
 
 .boxAnimated {
-  animation: box  ease infinite;   
+  animation: box 4s ease infinite;   
 }
 
 @keyframes box {
@@ -132,7 +132,7 @@
 }
 
 .floater {
-  animation: float 2s infinite ease ;
+  animation: float 4s infinite ease ;
 }
 
 @keyframes float {
