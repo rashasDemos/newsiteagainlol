@@ -19,18 +19,12 @@ function moveJoint(mouse, joint, degreeLimit = 30) {
 
 export const Model = ({ mouse,scroll, ...props }) => {
 
-  useEffect(() => {
-    fetch('http://localhost:5000/public/xbot.glb', {
-      headers: {
-        "Access-Control-Allow-Origin": "http://localhost:3000"
-       }
-    }).then((res) => console.log(res), (err) => console.log(err))
-  },[])
+
 
   const group = useRef()
-  const { nodes, animations } = useLoader(GLTFLoader, "./xbot.glb")
+  const { nodes, animations } = useLoader(GLTFLoader, "https://github.com/rasha-rahman123/newsiteagainlol/raw/main/public/Xbot.glb")
   console.log(animations)
-  const texture = useLoader(THREE.TextureLoader, "./stacy.png")
+  const texture = useLoader(THREE.TextureLoader, "https://github.com/rasha-rahman123/newsiteagainlol/raw/main/public/stacy.png")
 
   const actions = useRef()
   const [mixer] = useState(() => new THREE.AnimationMixer())

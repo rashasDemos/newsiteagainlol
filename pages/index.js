@@ -135,6 +135,7 @@ export default function Home({ colors, scroll, sta, mouse, maxScroll }) {
           {canv(mouse, scroll)}
         </Box>
       }
+ 
       <Text
         id="header"
         sx={{
@@ -143,6 +144,7 @@ export default function Home({ colors, scroll, sta, mouse, maxScroll }) {
           fontWeight: "bold",
           letterSpacing: -4,
           my: 1,
+          pt: 5,
           opacity: sta === "entered" ? 1 : 0,
           transform: sta === "entered" ? "translateY(0vh)" : "translateY(-5vh)",
           transition: "all 300ms ease 1300ms",
