@@ -409,9 +409,9 @@ export default function Home({ colors, scroll, sta, mouse, maxScroll }) {
             },
           ].map((x, i) =>
             i !== 4 ? (
-              righturl(x.main, x.sub, `https://www.${x.sub}`)
+              righturl(x.main, x.sub, `https://${x.sub}`)
             ) : (
-              <Box>{righturl(x.main, x.sub, `https://www.${x.sub}`)}</Box>
+              <Box>{righturl(x.main, x.sub, `https://${x.sub}`)}</Box>
             )
           )}
         </Box>
